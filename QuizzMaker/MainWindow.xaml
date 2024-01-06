@@ -5,8 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuizzMaker"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="QuizzMaker" Height="450" Width="800"
+        Background="LightSkyBlue">
     <Grid>
-
+        <TextBlock Text="Question:" FontSize="15" Margin="0,0,10,0"></TextBlock>
+        <TextBlock Text ="A :" Margin="36,64,10,0" FontSize="15"></TextBlock>
+        <CheckBox Name="ansAcb" Margin="10,68,736,325" RenderTransformOrigin="0.556,0.511"></CheckBox>
+        <TextBlock Margin="36,114,10,10" FontSize="15">
+            B :
+        </TextBlock>
+        <CheckBox Name="ansBcb" Margin="8,116,736,268"></CheckBox>
+        <TextBox Name="ansCTxt" Margin="69,171,0,211" FontSize="15" HorizontalAlignment="Left" Width="721"/>
+        <CheckBox Name="ansCcb" Margin="8,173,736,211"></CheckBox>
+        <TextBox Name="ansDTxt" Margin="69,228,10,154" FontSize="15"/>
+        <CheckBox Name="ansDcb" Margin="8,232,736,154"></CheckBox>
+        <TextBox Name="ansETxt" Margin="69,285,10,97" FontSize="15"/>
+        <CheckBox Name="ansEcb" Margin="8,289,736,97"></CheckBox>
+        <TextBox Name="ansFTxt" Margin="69,342,10,40" FontSize="15"/>
+        <CheckBox Name="ansFcb" Margin="8,346,739,40"></CheckBox>
+        <TextBlock Margin="36,171,10,211" FontSize="15"><Run Text="C :"/></TextBlock>
+        <TextBlock Margin="36,232,10,0" FontSize="15"><Run Text="D :"/></TextBlock>
+        <TextBlock Margin="36,289,10,0" FontSize="15"><Run Text="E :"/></TextBlock>
+        <TextBlock Margin="36,346,10,10" FontSize="15"><Run Text="F :"/></TextBlock>
+        <Button Name="doneBtn" Content="Done" Height="25" Width="50" VerticalAlignment="Bottom" Background="LightBlue" Click="doneClick">
+        </Button>
+        <StackPanel Orientation="Vertical">
+            <TextBox Name="quesTxt" VerticalAlignment="Top" FontSize="15" Height="52" Margin="69,0,0,0"/>
+            <TextBox x:Name ="ansATxt" FontSize="15" Height="28" Width="732"/>
+            <TextBox Name="ansBTxt" Margin="5" FontSize="15"/>
+        </StackPanel>
     </Grid>
-</Window>
+</Window>   
