@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Diagnostics;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -15,67 +16,94 @@ namespace QuizzMaker
     public partial class MainWindow : Window
     {
         public List<Question> questions;
+        FileController fileController;
         public MainWindow()
         {
+            fileController = new FileController();
+            questions = new List<Question>();
             InitializeComponent();
         }
 
         public void GetInput()
         {
             Question question = new Question();
-            question.question = quesTxt.Text;
-            question.answer = CreateAnswerList();
-            questions.Add(question);
+            if(questxt.Text != "") {
+                question.question = "Questions: " + questxt.Text;
+                question.answer = CreateAnswerList();
+                questions.Add(question);
+                quesQuantity.Text =  "Questions: " + questions.Count.ToString();
+                MessageBox.Show("Add Successfully!");
+            }
+            else
+            {
+                MessageBox.Show("No Question text!");
+            }
         }
 
         public List<Answer> CreateAnswerList()
         {
-            Answer answer = new Answer();
             List<Answer> answers = new List<Answer>();
-            if (ansATxt != null)
+            if (ansAtxt.Text != "")
             {
-                answer.text = ansATxt.Text;
+                Answer answer = new Answer();
+                answer.text = "A: " + ansAtxt.Text;
                 answer.isKey = ansAcb.IsChecked.Value;
                 answers.Add(answer);
             }
-            if (ansBTxt != null)
+            if (ansBtxt.Text != "")
             {
-                answer.text = ansBTxt.Text;
+                Answer answer = new Answer();
+                answer.text = "B: " + ansBtxt.Text;
                 answer.isKey = ansBcb.IsChecked.Value;
                 answers.Add(answer);
             }
-            if (ansCTxt != null)
+            if (ansCtxt.Text != "")
             {
-                answer.text = ansCTxt.Text;
+                Answer answer = new Answer();
+                answer.text = "C: " + ansCtxt.Text;
                 answer.isKey = ansCcb.IsChecked.Value;
                 answers.Add(answer);
             }
-            if (ansDTxt != null)
+            if (ansDtxt.Text != "")
             {
-                answer.text = ansDTxt.Text;
+                Answer answer = new Answer();
+                answer.text = "D: " + ansDtxt.Text;
                 answer.isKey = ansDcb.IsChecked.Value;
                 answers.Add(answer);
             }
-            if (ansETxt != null)
+            if (ansEtxt.Text != "")
             {
-                answer.text = ansETxt.Text;
+                Answer answer = new Answer();
+                answer.text = "E: " + ansEtxt.Text;
                 answer.isKey = ansEcb.IsChecked.Value;
                 answers.Add(answer);
             }
-            if (ansFTxt != null)
+            if (ansFtxt.Text != "")
             {
-                answer.text = ansFTxt.Text;
+                Answer answer = new Answer();
+                answer.text = "F: " + ansFtxt.Text;
+                answer.isKey = ansFcb.IsChecked.Value;
+                answers.Add(answer);
+            }
+            if (ansGtxt.Text != "")
+            {
+                Answer answer = new Answer();
+                answer.text = "G: " + ansGtxt.Text;
                 answer.isKey = ansFcb.IsChecked.Value;
                 answers.Add(answer);
             }
             return answers;
         }
 
-        private void doneClick(object sender, RoutedEventArgs e)
+        private void doneClick(object sender, EventArgs e)
         {
             GetInput();
-            MessageBox.Show(questions[0].question);
         }
-        
+
+        private void savebtn_Click(object sender, RoutedEventArgs e)
+        {
+            fileController.SaveDataToFile(questions, fileController.filePath);
+            MessageBox.Show("Save Successfully!");
+        }
     }
 }
