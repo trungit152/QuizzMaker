@@ -99,6 +99,21 @@ namespace QuizzMaker
         private void doneClick(object sender, EventArgs e)
         {
             GetInput();
+            questxt.Text = "";
+            ansAtxt.Text = "";
+            ansBtxt.Text = "";
+            ansCtxt.Text = "";
+            ansDtxt.Text = "";
+            ansEtxt.Text = "";
+            ansFtxt.Text = "";
+            ansGtxt.Text = "";
+            ansAcb.IsChecked = false;
+            ansBcb.IsChecked = false;
+            ansCcb.IsChecked = false;
+            ansDcb.IsChecked = false;
+            ansEcb.IsChecked = false;
+            ansFcb.IsChecked = false;
+            ansGcb.IsChecked = false;
         }
 
         private void savebtn_Click(object sender, RoutedEventArgs e)
@@ -116,7 +131,8 @@ namespace QuizzMaker
         }
         public void QuitClick(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show(questions[0].answer[0].text);
         }
+
     }
 }

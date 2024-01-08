@@ -83,12 +83,12 @@ namespace QuizzMaker
                             while (line != "}")
                             {
                                 Answer answer = new Answer();
-                                line = reader.ReadLine();
                                 if (reader.Peek() == '*')
                                 {
                                     answer.isKey = true;
                                 }
                                 else answer.isKey = false;
+                                line = reader.ReadLine();
                                 answer.text = line;
                                 question.answer.Add(answer);
                             }

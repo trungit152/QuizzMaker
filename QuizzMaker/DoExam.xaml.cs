@@ -22,7 +22,6 @@ namespace QuizzMaker
         FileController fileController;
         public List<Question> questions;
         public int quesIndex = 0;
-        List<string> anstxt = new List<string> { "", "", "", "", "", "", "" };
         public DoExam()
         {
             questions = new List<Question>();
@@ -45,9 +44,15 @@ namespace QuizzMaker
         public void ShowQuestion()
         {
             questxt.Text = questions[quesIndex].question;
-            for(int i = 0;i < questions[quesIndex].answer.Count(); i++)
+            List<string> anstxt = new List<string> { "", "", "", "", "", "", "" };
+            for (int i = 0;i < questions[quesIndex].answer.Count(); i++)
             {
-                anstxt[i] = questions[quesIndex].answer[i].text;
+                MessageBox.Show("Dap an " + i + " la " + questions[quesIndex].answer[i].text);
+                if (questions[quesIndex].answer[i].isKey)
+                {
+                    anstxt[i] = RemoveFirstCharacter(questions[quesIndex].answer[i].text);
+                }
+                else anstxt[i] = questions[quesIndex].answer[i].text;
             }
             ansAtxt.Text = anstxt[0];
             ansBtxt.Text = anstxt[1];
@@ -73,7 +78,7 @@ namespace QuizzMaker
             bool check = true;
             for(int i = 0;i< questions[quesIndex].answer.Count();i++)
             {
-                if (questions[quesIndex].answer[i].isKey != GetKey()[i+1]) check = false;
+                if (questions[quesIndex].answer[i].isKey != GetKey()[i]) check = false;
             }
             if (check)
             {
@@ -121,5 +126,18 @@ namespace QuizzMaker
             main.filePath.Text = filePath.Text;
             main.Show();
         }
+        public string RemoveFirstCharacter(string input)
+        {
+            if (string.IsNullOrEmpty(input) || input.Length == 1)
+            {
+                return string.Empty;
+            }
+            else
+            {
+                return input.Substring(1);
+            }
+        }
+
     }
+
 }
