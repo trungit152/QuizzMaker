@@ -47,7 +47,6 @@ namespace QuizzMaker
             List<string> anstxt = new List<string> { "", "", "", "", "", "", "" };
             for (int i = 0;i < questions[quesIndex].answer.Count(); i++)
             {
-                MessageBox.Show("Dap an " + i + " la " + questions[quesIndex].answer[i].text);
                 if (questions[quesIndex].answer[i].isKey)
                 {
                     anstxt[i] = RemoveFirstCharacter(questions[quesIndex].answer[i].text);

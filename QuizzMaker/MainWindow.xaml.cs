@@ -131,7 +131,7 @@ namespace QuizzMaker
         }
         public void QuitClick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(questions[0].answer[0].text);
+            MessageBox.Show("Khong thoat duoc dau con trai :))");
         }
 
     }
