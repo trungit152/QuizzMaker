@@ -4,54 +4,106 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace QuizzMaker
 {
     class FileController
     {
-        public string filePath = "nmcnpm.txt";
         public void SaveDataToFile(List<Question> questions, string filePath)
         {
+            if (filePath != null)
+            {
+                filePath += ".txt";
+                if (File.Exists(filePath))
+                {
+                    using (StreamWriter writer = new StreamWriter(filePath, append: true))
+                    {
+                        foreach (Question question in questions)
+                        {
+                            writer.WriteLine("{");
+                            writer.WriteLine(question.question);
+                            foreach (Answer answer in question.answer)
+                            {
+                                if (answer.text != null)
+                                {
+                                    if (answer.isKey) writer.WriteLine("*" + answer.text);
+                                    else writer.WriteLine(answer.text);
+                                }
+                            }
+                            writer.WriteLine("}");
+                        }
+                    }
+                    MessageBox.Show("Save Successfully!");
+                }
+                else
+                {
+                    using (StreamWriter writer = new StreamWriter(filePath))
+                    {
+                        foreach (Question question in questions)
+                        {
+                            writer.WriteLine("{");
+                            writer.WriteLine(question.question);
+                            foreach (Answer answer in question.answer)
+                            {
+                                if (answer.text != null)
+                                {
+                                    if (answer.isKey) writer.WriteLine("*" + answer.text);
+                                    else writer.WriteLine(answer.text);
+                                }
+                            }
+                            writer.WriteLine("}");
+                        }
+                    }
+                    MessageBox.Show("Save Successfully!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("No File Name!");
+            }
+        }
+
+        public List<Question> ReadDataFromFile(string filePath)
+        {
+            filePath += ".txt";
+            List<Question> questions = new List<Question>();
             if (File.Exists(filePath))
             {
-                using (StreamWriter writer = new StreamWriter(filePath, append: true))
+                using (StreamReader reader = new StreamReader(filePath))
                 {
-                    foreach (Question question in questions)
+                    while (!reader.EndOfStream)
                     {
-                        writer.WriteLine("{");
-                        writer.WriteLine(question.question);
-                        foreach (Answer answer in question.answer)
+                        string line = reader.ReadLine();
+                        if(line == "{")
                         {
-                            if (answer.text != null)
+                            Question question = new Question();
+                            question.answer = new List<Answer>();
+                            question.question = reader.ReadLine();
+                            while (line != "}")
                             {
-                                if (answer.isKey) writer.WriteLine("*" + answer.text);
-                                else writer.WriteLine(answer.text);
+                                Answer answer = new Answer();
+                                line = reader.ReadLine();
+                                if (reader.Peek() == '*')
+                                {
+                                    answer.isKey = true;
+                                }
+                                else answer.isKey = false;
+                                answer.text = line;
+                                question.answer.Add(answer);
                             }
-                        }
-                        writer.WriteLine("}");
+                            question.answer.Remove(question.answer.Last());
+                            questions.Add(question);
+                            
+                        }                                             
                     }
                 }
             }
             else
             {
-                using (StreamWriter writer = new StreamWriter(filePath))
-                {
-                    foreach (Question question in questions)
-                    {
-                        writer.WriteLine("{");
-                        writer.WriteLine(question.question);
-                        foreach (Answer answer in question.answer)
-                        {
-                            if (answer.text != null)
-                            {
-                                if (answer.isKey) writer.WriteLine("*"+answer.text);
-                                else writer.WriteLine(answer.text);
-                            }
-                        }
-                        writer.WriteLine("}");
-                    }
-                }
+                MessageBox.Show("No File Found!");
             }
+            return questions;
         }
     }
 }

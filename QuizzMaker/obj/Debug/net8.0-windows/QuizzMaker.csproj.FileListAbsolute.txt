@@ -19,3 +19,5 @@ D:\prj\QuizzMaker\QuizzMaker\obj\Debug\net8.0-windows\refint\QuizzMaker.dll
 D:\prj\QuizzMaker\QuizzMaker\obj\Debug\net8.0-windows\QuizzMaker.pdb
 D:\prj\QuizzMaker\QuizzMaker\obj\Debug\net8.0-windows\QuizzMaker.genruntimeconfig.cache
 D:\prj\QuizzMaker\QuizzMaker\obj\Debug\net8.0-windows\ref\QuizzMaker.dll
+D:\prj\QuizzMaker\QuizzMaker\obj\Debug\net8.0-windows\DoExam.g.cs
+D:\prj\QuizzMaker\QuizzMaker\obj\Debug\net8.0-windows\DoExam.baml

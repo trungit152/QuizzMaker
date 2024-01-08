@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:QuizzMaker"
         mc:Ignorable="d"
         Title="QuizzMaker" Height="450" Width="800"
-        Background="LightSkyBlue">
+        Background="LightSkyBlue"
+        Icon="D:\prj\QuizzMaker\QuizzMaker\icon.ico">
     <Viewbox>
         <Grid>
             <Grid.RowDefinitions>
@@ -21,6 +22,7 @@
             <TextBlock Text="F :" FontSize="15" Margin="40,300,0,100" HorizontalAlignment="Left"></TextBlock>
             <TextBlock Text="G :" FontSize="15" Margin="40,350,0,50" HorizontalAlignment="Left"></TextBlock>
             <Button x:Name="donebtn" Click="doneClick" Content="Done" Width="50" Height="30" Margin="375,404,375,0"></Button>
+            <Button x:Name="goToExambtn" Click="goToExamClick" Content="Do Exam" Width="50" Height="30" Margin="375,404,200,0"></Button>
             <StackPanel Orientation="Vertical">
                 <TextBox Name="questxt" Margin="75,0,10,0" Height="30" Width="710"></TextBox>
                 <TextBox Name="ansAtxt" Margin="75,15,10,0" Height="30" Width="710"></TextBox>
@@ -42,6 +44,9 @@
             </StackPanel>
             <Button x:Name="savebtn" Click="savebtn_Click" Content="Save" Width="50" Margin="740,404,10,0" Height="30"></Button>
             <TextBlock Name="quesQuantity" Text="Questions: 0" FontSize="15" Margin="0,404,700,0" Width="100"></TextBlock>
+            <TextBox Name="filePath" FontSize="15" Margin="617,404,83,0" Width="100"></TextBox>
+            <TextBlock Text="File name:" FontSize="15" Margin="546,408,154,-4" Width="100"></TextBlock>
+            <Button x:Name="quitbtn" Click="QuitClick" Content="Quit" Width="50" Margin="128,404,622,0" Height="30"></Button>
         </Grid>
     </Viewbox>
 

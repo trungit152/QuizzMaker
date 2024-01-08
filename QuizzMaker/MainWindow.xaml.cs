@@ -22,13 +22,14 @@ namespace QuizzMaker
             fileController = new FileController();
             questions = new List<Question>();
             InitializeComponent();
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         public void GetInput()
         {
             Question question = new Question();
             if(questxt.Text != "") {
-                question.question = "Questions: " + questxt.Text;
+                question.question = questxt.Text;
                 question.answer = CreateAnswerList();
                 questions.Add(question);
                 quesQuantity.Text =  "Questions: " + questions.Count.ToString();
@@ -46,50 +47,50 @@ namespace QuizzMaker
             if (ansAtxt.Text != "")
             {
                 Answer answer = new Answer();
-                answer.text = "A: " + ansAtxt.Text;
+                answer.text = ansAtxt.Text;
                 answer.isKey = ansAcb.IsChecked.Value;
                 answers.Add(answer);
             }
             if (ansBtxt.Text != "")
             {
                 Answer answer = new Answer();
-                answer.text = "B: " + ansBtxt.Text;
+                answer.text = ansBtxt.Text;
                 answer.isKey = ansBcb.IsChecked.Value;
                 answers.Add(answer);
             }
             if (ansCtxt.Text != "")
             {
                 Answer answer = new Answer();
-                answer.text = "C: " + ansCtxt.Text;
+                answer.text = ansCtxt.Text;
                 answer.isKey = ansCcb.IsChecked.Value;
                 answers.Add(answer);
             }
             if (ansDtxt.Text != "")
             {
                 Answer answer = new Answer();
-                answer.text = "D: " + ansDtxt.Text;
+                answer.text = ansDtxt.Text;
                 answer.isKey = ansDcb.IsChecked.Value;
                 answers.Add(answer);
             }
             if (ansEtxt.Text != "")
             {
                 Answer answer = new Answer();
-                answer.text = "E: " + ansEtxt.Text;
+                answer.text = ansEtxt.Text;
                 answer.isKey = ansEcb.IsChecked.Value;
                 answers.Add(answer);
             }
             if (ansFtxt.Text != "")
             {
                 Answer answer = new Answer();
-                answer.text = "F: " + ansFtxt.Text;
+                answer.text = ansFtxt.Text;
                 answer.isKey = ansFcb.IsChecked.Value;
                 answers.Add(answer);
             }
             if (ansGtxt.Text != "")
             {
                 Answer answer = new Answer();
-                answer.text = "G: " + ansGtxt.Text;
-                answer.isKey = ansFcb.IsChecked.Value;
+                answer.text = ansGtxt.Text;
+                answer.isKey = ansGcb.IsChecked.Value;
                 answers.Add(answer);
             }
             return answers;
@@ -102,8 +103,20 @@ namespace QuizzMaker
 
         private void savebtn_Click(object sender, RoutedEventArgs e)
         {
-            fileController.SaveDataToFile(questions, fileController.filePath);
-            MessageBox.Show("Save Successfully!");
+            fileController.SaveDataToFile(questions, filePath.Text);
+            questions.Clear();
+        }
+
+        private void goToExamClick(object sender, RoutedEventArgs e)
+        {
+            DoExam doExam = new DoExam();
+            this.Close();
+            doExam.filePath.Text = filePath.Text;
+            doExam.Show();
+        }
+        public void QuitClick(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
