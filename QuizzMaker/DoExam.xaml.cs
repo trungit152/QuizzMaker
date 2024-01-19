@@ -22,12 +22,36 @@ namespace QuizzMaker
         FileController fileController;
         public List<Question> questions;
         public int quesIndex = 0;
+        Random rand;
         public DoExam()
         {
             questions = new List<Question>();
             fileController = new FileController();
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            PreviewKeyDown += DoExam_PreviewKeyDown;
+            rand = new Random();
+        }
+        private void DoExam_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Right)
+            {
+                if (quesIndex < questions.Count() - 1)
+                {
+                    quesIndex++;
+                    QuesQuantityUpdate();
+                    ShowQuestion();
+                }
+            }
+            if (e.Key == Key.Left)
+            {
+                if (quesIndex > 0)
+                {
+                    quesIndex--;
+                    QuesQuantityUpdate();
+                    ShowQuestion();
+                }
+            }
         }
         public List<bool> GetKey()
         {
@@ -45,21 +69,55 @@ namespace QuizzMaker
         {
             questxt.Text = questions[quesIndex].question;
             List<string> anstxt = new List<string> { "", "", "", "", "", "", "" };
-            for (int i = 0;i < questions[quesIndex].answer.Count(); i++)
+            List<bool> ansIsKey = new List<bool> { false, false, false, false, false, false, false };
+            for (int i = 0; i < questions[quesIndex].answer.Count(); i++)
             {
                 if (questions[quesIndex].answer[i].isKey)
                 {
-                    anstxt[i] = RemoveFirstCharacter(questions[quesIndex].answer[i].text);
+                    anstxt[i] = i.ToString() + RemoveFirstCharacter(questions[quesIndex].answer[i].text);
                 }
-                else anstxt[i] = questions[quesIndex].answer[i].text;
+                else anstxt[i] = i.ToString() + questions[quesIndex].answer[i].text;
+                ansIsKey[i] = questions[quesIndex].answer[i].isKey;
             }
-            ansAtxt.Text = anstxt[0];
-            ansBtxt.Text = anstxt[1];
-            ansCtxt.Text = anstxt[2];
-            ansDtxt.Text = anstxt[3];
-            ansEtxt.Text = anstxt[4];
-            ansFtxt.Text = anstxt[5];
-            ansGtxt.Text = anstxt[6];
+            List<string> filteredAns = new List<string>();
+            for (int i = 0; i < anstxt.Count(); i++)
+            {
+                if (anstxt[i] != "")
+                {
+                    filteredAns.Add(anstxt[i]);
+                }
+            }
+            filteredAns = filteredAns.OrderBy(x => rand.Next()).ToList();
+            List<Answer> temp = new List<Answer>();
+            for (int i = 0;i<filteredAns.Count(); i++)
+            {
+                temp.Add(new Answer { text = filteredAns[i], isKey = false});
+
+                for (int j = 0; j < questions[quesIndex].answer.Count(); j++)
+                {
+                    if (filteredAns[i].ElementAt(0) == anstxt[j].ElementAt(0))
+                    {
+                        temp[i].isKey = ansIsKey[j];
+                    } 
+                }
+            }
+            for(int i = 0; i < temp.Count(); i++)
+            {
+                if (!temp[i].isKey)
+                temp[i].text = temp[i].text.Substring(1);
+            }
+            questions[quesIndex].answer = temp;
+            while (filteredAns.Count < 7)
+            {
+                filteredAns.Add("");
+            }
+            ansAtxt.Text = RemoveFirstCharacter(filteredAns[0]);
+            ansBtxt.Text = RemoveFirstCharacter(filteredAns[1]);
+            ansCtxt.Text = RemoveFirstCharacter(filteredAns[2]);
+            ansDtxt.Text = RemoveFirstCharacter(filteredAns[3]);
+            ansEtxt.Text = RemoveFirstCharacter(filteredAns[4]);
+            ansFtxt.Text = RemoveFirstCharacter(filteredAns[5]);
+            ansGtxt.Text = RemoveFirstCharacter(filteredAns[6]);
             ansAcb.IsChecked = false;
             ansBcb.IsChecked = false;
             ansCcb.IsChecked = false;
@@ -69,13 +127,14 @@ namespace QuizzMaker
             ansGcb.IsChecked = false;
             for (int i = 0; i < 7; i++)
             {
+                filteredAns[i] = "";
                 anstxt[i] = "";
             }
         }
         private void ApplyClick(object sender, RoutedEventArgs e)
         {
             bool check = true;
-            for(int i = 0;i< questions[quesIndex].answer.Count();i++)
+            for (int i = 0; i < questions[quesIndex].answer.Count(); i++)
             {
                 if (questions[quesIndex].answer[i].isKey != GetKey()[i]) check = false;
             }
@@ -102,7 +161,7 @@ namespace QuizzMaker
 
         private void BackClick(object sender, RoutedEventArgs e)
         {
-            if(quesIndex > 0)
+            if (quesIndex > 0)
             {
                 quesIndex--;
                 QuesQuantityUpdate();
@@ -111,7 +170,7 @@ namespace QuizzMaker
         }
         private void NextClick(object sender, RoutedEventArgs e)
         {
-            if (quesIndex < questions.Count()-1)
+            if (quesIndex < questions.Count() - 1)
             {
                 quesIndex++;
                 QuesQuantityUpdate();
@@ -135,6 +194,13 @@ namespace QuizzMaker
             {
                 return input.Substring(1);
             }
+        }
+
+        public void Shuffle_Click(object sender, RoutedEventArgs e)
+        {
+            questions = questions.OrderBy(x => rand.Next()).ToList();
+            QuesQuantityUpdate();
+            ShowQuestion();
         }
 
     }

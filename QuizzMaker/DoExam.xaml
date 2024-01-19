@@ -49,6 +49,7 @@
             <Button x:Name="nextbtn" Click="NextClick" Content="Next" Width="50" Margin="448,404,302,0" Height="30"></Button>
             <Button x:Name="backbtn" Click="BackClick" Content="Back" Width="50" Margin="301,404,449,0" Height="30"></Button>
             <Button x:Name="quitbtn" Click="QuitClick" Content="Quit" Width="50" Margin="128,404,622,0" Height="30"></Button>
+            <Button x:Name="shuffle" Click="Shuffle_Click" Content="Shuffle" Width="50" Margin="198,404,552,0" Height="30"></Button>
         </Grid>
     </Viewbox>
 </Window>

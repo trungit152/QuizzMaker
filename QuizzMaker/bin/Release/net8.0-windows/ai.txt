@@ -1,0 +1,124 @@
+{
+Những thông tin nào dưới đây liên quan đến hệ thống hỏi đáp Watson của IBM được xem là thành tựu phát triển của Trí tuệ nhân tạo?
+*Khả năng biểu diễn tri thức, giải quyết vấn đề
+Thu thập thông tin từ hàng triệu trang Web
+Hệ thống cơ cấu cơ khí để bấm nút câu hỏi
+*Khả năng xử lý ngôn ngữ tự nhiên
+}
+{
+Chọn các các thành phần cơ bản của trí tuệ nhân tạo:
+Chạy (running)
+*Suy diễn (reasoning)
+*Hiểu ngôn ngữ
+*Biểu diễn tri thức
+Nói (talking)
+Nghe (listening)
+*Học tập (learning)
+}
+{
+Các sự kiện nào sau đây thể hiện sự phát triển trong lĩnh vực trí tuệ nhân tạo giai đoạn 1980-1990?
+Hệ thống AlphaGo của Google đánh bại kỳ thủ cờ vây hàng đầu
+Chương trình cờ vua Samuel 
+*Trí tuệ nhân tạo trở thành một lĩnh vực khoa học 
+*Sự xuất hiện bùng nổ của các hệ chuyên gia
+}
+{
+Mục đích khi phát triển một tác tử hợp lý là làm cho máy:
+Suy nghĩ hợp lý
+Hành động như con người
+*Hành động hợp lý
+Suy nghĩ như con người
+}
+{
+Kiểm tra Turing (Turing test) để trả lời cho câu hỏi nào dưới đây?
+Máy tính có thể suy nghĩ và hành động hợp lý không?
+Máy tính có thể suy nghĩ thông minh (như con người) không?
+Máy tính có thể hành động hợp lý không?
+*Máy tính có thể hành động thông minh (như con người) không?
+Máy tính có thể suy nghĩ hợp lý không?
+}
+{
+Các lĩnh vực nào được xem là nền tảng của trí tuệ nhân tạo?
+*Toán học (biểu diễn hình thức, lý thuyết tính toán, tối ưu hóa)
+Vật lý (nghiên cứu vật chất, tính toán chuyển động)
+*Kinh tế học (hàm lợi ích, lý thuyết ra quyết định)
+Chính trị học (quản trị, phân tích hoạt động của xã hội, con người)
+*Logic (đánh giá các luận cứ, phương pháp suy diễn)
+}
+{
+Mục đích chính khi xây dựng hệ chuyên gia là làm cho máy:
+Suy nghĩ hợp lý
+Hành động như con người
+*Suy nghĩ như con người
+Hành động hợp lý
+}
+{
+Thành phần của một tác tử bao gồm ...
+Kiến trúc.
+Cảm nhận từ môi trường.
+*Kiến trúc và chương trình.
+Ánh xạ.
+}
+{
+Hãy trả lời đúng nhất các kiểu tác tử cơ bảns?
+Tác tử phản xạ đơn giản (simple reflex agents)
+Tác tử dựa trên lợi ích (utility-based agents)
+*Tác tử phản xạ đơn giản (simple reflex agents), Tác tử phản xạ dựa trên mô hình (model-based reflex agents), Tác tử dựa trên mục tiêu (goal-based agents), Tác tử dựa trên lợi ích (utility-based agents)
+Tác tử phản xạ đơn giản (simple reflex agents), Tác tử phản xạ dựa trên mô hình (model-based reflex agents)
+}
+{
+Các hệ thống TTNT được phát triển trên quan điểm nào sau đây?
+*Các hệ thống suy nghĩ một cách hợp lý
+Các hệ thống hành động (thông minh) như con người
+Các hệ thống suy nghĩ và hành động một cách hợp lý
+Các hệ thống suy nghĩ (thông minh) như con người
+Các hệ thống hành động một cách hợp lý
+}
+{
+Các sự kiện nào sau đây thể hiện sự phát triển trong lĩnh vực trí tuệ nhân tạo giai đoạn 1980-1990?
+*Trí tuệ nhân tạo trở thành một lĩnh vực khoa học
+Hệ thống AlphaGo của Google đánh bại kỳ thủ cờ vây hàng đầu
+*Sự xuất hiện bùng nổ của các hệ chuyên gia
+Chương trình cờ vua Samuel
+}
+{
+Kiểu môi trường nào sau đây là của trò chơi ô chữ (puzzle)?
+Liên tục
+Bán động
+Động
+*Tĩnh
+}
+{
+GoogleBrain có đặc điểm gì nổi bật so với các hệ thống trí tuệ nhân tạo trước đó?
+*Sử dụng số lượng máy tính máy tính quy mô lớn, lên đến hàng ngàn máy tính
+Dán nhãn (ví dụ mèo hay đối tượng khác) để đào tạo (train) hệ thống
+*Đạt được độ chính xác cao (xấp xỉ 80%) phát hiện khuôn mặt, các bộ phận cơ thể người với các hình ảnh phổ biến trên YouTube
+Tạo ra được các gương mặt giống như người thật
+}
+{
+Tác tử (Agents) được mô tả như sau:
+Môi trường mà tác tử thực hiện
+Cảm nhận không liên tục
+*Hàm tác tử - Agent function
+Các cảm biến và bộ phận hoạt động - Sensors and Actuators
+}
+{
+Để thiết kế một tác tử thông minh (hợp lý), trước tiên cần phải xác định (thiết lập) các giá trị của các thành phần của PEAS với câu trả lời đúng nhất
+Performance measure: Tiêu chí đánh giá hiệu quả hoạt động
+*Performance measure: Tiêu chí đánh giá hiệu quả hoạt động; Environment: Môi trường xung quanh; Actuators: Các bộ phận hành động và Sensors: Các bộ phận cảm biến
+Actuators: Các bộ phận hành động và Sensors: Các bộ phận cảm biến
+Environment: Môi trường xung quanh
+}
+{
+Với phần lớn các bài toán thực tế, tìm kiếm sâu có độ phức tạp về bộ nhớ nhỏ hơn so với tìm kiếm rộng:
+*True
+False: tìm kiếm rộng có độ phức tạp về bộ nhớ nhỏ hơn so với tìm kiếm sâu
+False: tìm kiếm rộng có độ phức tạp về bộ nhớ bằng tìm kiếm sâu
+}
+{
+Tìm kiếm sâu dần là:
+Độ phức tạp thời gian lớn hơn nhiều tìm kiếm sâu
+*Hoàn chỉnh
+*Tối ưu (khi trọng số cạnh bằng nhau và lớn hơn 0)
+Hiệu quả
+}
